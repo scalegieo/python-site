@@ -34,6 +34,15 @@
   /* Ambient media: <div class="hero-media" data-film="slug"> or data-src="url" */
   document.querySelectorAll(".hero-media[data-film], .hero-media[data-src]").forEach(function (box) {
     var film = byslug[box.dataset.film] || {};
+    var heroId = !box.dataset.src && ytId(film.youtube);
+    if (heroId) {
+      var poster = new Image();
+      poster.alt = ""; poster.className = "hero-still"; poster.decoding = "async";
+      poster.src = "https://i.ytimg.com/vi/" + heroId + "/maxresdefault.jpg";
+      poster.onerror = function () { poster.onerror = null; poster.src = "https://i.ytimg.com/vi/" + heroId + "/hqdefault.jpg"; };
+      box.appendChild(poster);
+      return;
+    }
     var src = box.dataset.src || film.clip;
     var still = box.dataset.image || film.image;
     if (src && !reduce) {
@@ -59,8 +68,9 @@
     if (id) {
       media = new Image();
       media.alt = film.label + " walkthrough thumbnail";
-      media.loading = "lazy";
-      media.src = "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg";
+      media.loading = "lazy"; media.decoding = "async";
+      media.src = "https://i.ytimg.com/vi/" + id + "/maxresdefault.jpg";
+      media.onerror = function () { media.onerror = null; media.src = "https://i.ytimg.com/vi/" + id + "/hqdefault.jpg"; };
     } else if (film.clip) {
       media = document.createElement("video");
       media.muted = true; media.loop = true; media.playsInline = true; media.preload = "metadata";

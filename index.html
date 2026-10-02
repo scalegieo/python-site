@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="format-detection" content="telephone=no">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Python">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Python | Cinematic Walkthrough Agency for Homes, Airbnbs, Golf Courses &amp; Gyms</title>
 <meta name="description" content="Python is the cinematic walkthrough agency. We turn photos of any property, from homes and Airbnbs to golf courses, gyms and hotels, into 4K video walkthroughs and social reels. No film crew. Delivered in under 24 hours.">
 <link rel="canonical" href="https://pythonwalkthroughs.com/">
@@ -65,11 +71,11 @@
 
 :root{font-family:'SF Pro',Arial,sans-serif;color:#fff;background:#090807;font-synthesis:none}
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;overscroll-behavior:none;-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 html,body,button,a,.portal{cursor:none!important}
 @media (pointer:coarse){html,body,button,a,.portal{cursor:auto!important}.custom-cursor{display:none!important}}
 
-.experience{position:relative;width:100%;height:100%;min-height:540px;overflow:hidden;background:#0a0908}
+.experience{position:relative;width:100%;height:100%;height:100dvh;min-height:540px;overflow:hidden;background:#0a0908}
 .backgrounds,.shade{position:absolute;inset:0;width:100%;height:100%}
 .shade{z-index:1;background:linear-gradient(to bottom,transparent 52%,rgba(0,0,0,.88) 100%);pointer-events:none}
 
@@ -78,6 +84,9 @@ html,body,button,a,.portal{cursor:none!important}
 .film-layer.is-bg{z-index:0;clip-path:none}
 .film-layer.is-portal{z-index:2;clip-path:circle(0 at 50% 50%)}
 .layer-media,.layer-shade{position:absolute;inset:0}
+.layer-media{background:#030303 center/cover no-repeat}
+.layer-media iframe{opacity:0;transition:opacity .5s ease}
+.layer-media.is-playing iframe{opacity:1}
 .layer-media video,.layer-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .layer-media iframe{position:absolute;top:50%;left:50%;width:var(--yt-w,max(120vw,213.34vh));height:var(--yt-h,max(120vh,67.5vw));transform:translate(-50%,-50%) scale(var(--yt-scale,1));border:0;pointer-events:none}
 .layer-shade{background:linear-gradient(to bottom,transparent 52%,rgba(0,0,0,.88) 100%);opacity:0;pointer-events:none}
@@ -251,6 +260,22 @@ body:not(.intro-ready) .header,body:not(.intro-ready) .planet-list{opacity:0}
   .menu,.menu-close{height:38px}
   .portal{border-radius:70px}
 }
+@supports (padding:max(0px)){
+  .header{left:max(clamp(18px,1.95vw,28px),env(safe-area-inset-left));right:max(clamp(18px,1.95vw,28px),env(safe-area-inset-right));top:max(clamp(18px,3.1vh,28px),env(safe-area-inset-top))}
+  .planet-content{bottom:calc(clamp(24px,3vh,30px) + env(safe-area-inset-bottom))}
+}
+@media (pointer:coarse){
+  .menu,.menu-close,.film-modal-close{height:44px}
+  .watch{height:44px}
+  .watch:active,.menu:active{transform:scale(.97)}
+}
+@media(max-width:640px){
+  .planet-list{display:flex;flex-direction:column;gap:0;left:auto;right:max(2px,env(safe-area-inset-right));top:40%;transform:translateY(-50%)}
+  .planet-item,.planet-item.active{width:40px;height:36px;min-height:0;justify-content:center;font-size:0;gap:0}
+  .planet-item:before,.planet-item.active:before{content:'';width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.45);transition:height .35s cubic-bezier(.22,1,.36,1),background .35s}
+  .planet-item.active:before{height:20px;background:#fff}
+  .planet-content{left:max(18px,env(safe-area-inset-left));right:max(18px,env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom))}
+}
 @media(max-height:720px) and (min-width:641px){
   .fact{padding:5px 0}
   .tagline{display:none}
@@ -410,6 +435,7 @@ body:not(.intro-ready) .header,body:not(.intro-ready) .planet-list{opacity:0}
     if (layer.player) { try { layer.player.destroy(); } catch (e) {} }
     if (layer.video) { layer.video.pause(); layer.video.removeAttribute("src"); try { layer.video.load(); } catch (e) {} }
     layer.player = null; layer.video = null; layer.media.innerHTML = "";
+    layer.media.classList.remove("is-playing"); layer.media.style.backgroundImage = "";
   }
 
   function mediaReady(el, evt, ms) {
@@ -445,6 +471,7 @@ body:not(.intro-ready) .header,body:not(.intro-ready) .planet-list{opacity:0}
         return film.clip ? loadVideo(layer, film.clip) : film.image ? loadImage(layer, film.image) : null;
       }
       var mount = document.createElement("div");
+      layer.media.style.backgroundImage = "url('https://i.ytimg.com/vi/" + id + "/maxresdefault.jpg')";
       layer.media.appendChild(mount);
       var start = film.start || 0, end = film.end || 0;
       layer.start = start;
@@ -461,7 +488,7 @@ body:not(.intro-ready) .header,body:not(.intro-ready) .planet-list{opacity:0}
               try { e.target.unloadModule("captions"); e.target.unloadModule("cc"); } catch (err) {}
             },
             onStateChange: function (e) {
-              if (e.data === 1) { try { e.target.unloadModule("captions"); e.target.unloadModule("cc"); } catch (err) {} }
+              if (e.data === 1) { layer.media.classList.add("is-playing"); try { e.target.unloadModule("captions"); e.target.unloadModule("cc"); } catch (err) {} }
               if (e.data === 1) (window.whenSharp ? whenSharp(e.target, resolve, 2500) : resolve());
               if (e.data === 0) { e.target.seekTo(start, true); e.target.playVideo(); }
               // Loop in-page instead of using `end`, so the seek stays inside buffered video (no spinner or end screen).
@@ -702,13 +729,15 @@ body:not(.intro-ready) .header,body:not(.intro-ready) .planet-list{opacity:0}
     wheelAcc = 0;
   }
   addEventListener("wheel", function (e) { nudge(e.deltaY); }, { passive: true });
-  var touchY = null;
-  addEventListener("touchstart", function (e) { touchY = e.touches[0].clientY; }, { passive: true });
+  // Swipe up or left for the next film, down or right for the previous one.
+  var touchY = null, touchX = null;
+  addEventListener("touchstart", function (e) { touchY = e.touches[0].clientY; touchX = e.touches[0].clientX; }, { passive: true });
   addEventListener("touchmove", function (e) {
     if (touchY === null) return;
-    var y = e.touches[0].clientY; nudge((touchY - y) * 1.6); touchY = y;
+    var y = e.touches[0].clientY, x = e.touches[0].clientX, dy = touchY - y, dx = touchX - x;
+    nudge((Math.abs(dx) > Math.abs(dy) ? dx : dy) * 1.6); touchY = y; touchX = x;
   }, { passive: true });
-  addEventListener("touchend", function () { touchY = null; });
+  addEventListener("touchend", function () { touchY = touchX = null; });
 
   /* ---------- Pointer tilt ---------- */
   addEventListener("pointermove", function (e) {

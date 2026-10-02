@@ -136,8 +136,8 @@
         rMax = small ? 6.5 : clamp(W * 0.0068, 8, 11);
         amp = small ? 2.5 : 4; wave = small ? 70 : 110; ds = 4;
       } else {
-        rMax = small ? 9 : clamp(W * 0.0125, 13, 21);
-        amp = small ? 10 : clamp(W * 0.022, 20, 36); wave = small ? 150 : clamp(W * 0.19, 200, 300); ds = small ? 4.5 : 6;
+        rMax = small ? 7 : clamp(W * 0.0125, 13, 21);
+        amp = small ? 5 : clamp(W * 0.022, 20, 36); wave = small ? 130 : clamp(W * 0.19, 200, 300); ds = small ? 4 : 6;
         bodyLen = small ? H * 0.8 : clamp(H * 0.95, 680, 1050);
       }
       texture = scaleTexture(ctx, Math.max(4, rMax * 0.42) * dpr);
@@ -148,12 +148,13 @@
       if (mode !== "scroll") return;
       docH = document.documentElement.scrollHeight;
       var small = W < 700;
-      var lanes = small ? [0.92, 0.9, 0.93, 0.08, 0.1, 0.07] : [0.95, 0.93, 0.955, 0.94, 0.05, 0.07, 0.045, 0.06];
+      // Phones keep the snake in a slim lane on the right edge so it never crosses the text column.
+      var lanes = small ? [0.968, 0.962, 0.972, 0.965] : [0.95, 0.93, 0.955, 0.94, 0.05, 0.07, 0.045, 0.06];
       var stepY = H * (small ? 0.6 : 0.55);
       var ctrl = [], y = -bodyLen - 400, k = 0;
       while (y < docH + H + 400) {
         var lane = lanes[k % lanes.length];
-        ctrl.push([W * clamp(lane + (hash(k + 7) - 0.5) * 0.04, 0.04, 0.96), y]);
+        ctrl.push([W * clamp(lane + (hash(k + 7) - 0.5) * (small ? 0.012 : 0.04), 0.04, 0.975), y]);
         y += stepY * (0.85 + hash(k + 31) * 0.3);
         k++;
       }

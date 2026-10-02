@@ -13,7 +13,7 @@
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 body{margin:0;min-height:100vh;overflow-x:clip;background:var(--bg);line-height:1.55;font-size:17px}
 img,video{max-width:100%;display:block}
 a{color:inherit}
@@ -69,7 +69,7 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.08}
 .menu-side .links a{opacity:.78}
 
 /* Hero */
-.hero{position:relative;min-height:min(92vh,980px);display:flex;align-items:flex-end;padding:140px var(--gutter) clamp(40px,7vh,80px);overflow:hidden;isolation:isolate}
+.hero{position:relative;min-height:min(92vh,980px);min-height:min(92svh,980px);display:flex;align-items:flex-end;padding:140px var(--gutter) clamp(40px,7vh,80px);overflow:hidden;isolation:isolate}
 .hero.compact{min-height:min(70vh,720px)}
 .hero.short{min-height:auto;padding-top:clamp(140px,20vh,200px)}
 .hero-media{position:absolute;inset:0;z-index:-2}
@@ -144,7 +144,7 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.08}
 .player-play span{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 26px 0 8px;border-radius:999px;background:#fff;color:#000;font-weight:700;transition:transform .3s var(--ease)}
 .player-play span:before{content:'\25B6';display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:#000;color:#fff;font-size:13px}
 .player-play:hover span{transform:scale(1.05)}
-.scrollfilm{overflow-anchor:none;position:relative;height:calc(var(--chapters,4)*100vh + 100vh);background:#000}
+.scrollfilm{overflow-anchor:none;position:relative;height:calc(var(--chapters,4)*100vh + 100vh);height:calc(var(--chapters,4)*100svh + 100svh);background:#000}
 .sf-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
 .sf-media{position:absolute;inset:0;overflow:hidden;background:#000 center/cover no-repeat}
 .sf-media iframe{position:absolute;top:50%;left:50%;width:var(--yt-w,max(120vw,213.34vh));height:var(--yt-h,max(67.5vw,120vh));border:0;pointer-events:none;transform:translate(-50%,-50%) scale(var(--yt-scale,1));opacity:0;transition:opacity .8s var(--ease)}
@@ -346,7 +346,32 @@ h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.08}
   .btn-row .btn{flex:1 1 auto}
   .footer-top{grid-template-columns:1fr}
 }
-@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;filter:none;transform:none}}
+/* Touch devices (iOS / Android) */
+.hero-still{animation:heroDrift 24s var(--ease) infinite alternate;transform-origin:60% 40%}
+@keyframes heroDrift{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+@supports (padding:max(0px)){
+  :root{--gutter:max(clamp(18px,4vw,58px),env(safe-area-inset-left),env(safe-area-inset-right))}
+  .site-header{padding-left:max(clamp(18px,1.95vw,28px),env(safe-area-inset-left));padding-right:max(clamp(18px,1.95vw,28px),env(safe-area-inset-right));padding-top:max(clamp(14px,2.4vh,24px),env(safe-area-inset-top))}
+  .site-header.is-scrolled{padding-top:max(12px,env(safe-area-inset-top))}
+  .site-footer{padding-bottom:calc(32px + env(safe-area-inset-bottom))}
+  .sf-progress{bottom:calc(clamp(36px,6vh,56px) + env(safe-area-inset-bottom))}
+  .sf-chapter{bottom:calc(clamp(96px,15vh,150px) + env(safe-area-inset-bottom))}
+}
+@media (hover:none){
+  .btn:hover,.film-card:hover video,.film-card:hover img,.player-play:hover span{transform:none}
+  .film-card:hover img{opacity:.92}
+  .btn:active,.menu:active,.filters button:active,.player-play:active span{transform:scale(.97)}
+  .film-card:active{opacity:.85}
+}
+@media (pointer:coarse){
+  .menu,.header-cta{height:44px}
+  .filters button{height:44px}
+  .footer-bottom nav{gap:6px}
+  .footer-bottom nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 8px}
+  .price-tag{display:inline-flex;align-items:center;min-height:44px}
+  .contact-list .text-link,.area .text-link,.prose li .text-link{display:inline-block;padding:11px 0}
+}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation-duration:.01ms!important;scroll-behavior:auto!important}.reveal{opacity:1;filter:none;transform:none}.hero-still{animation:none}}
 
 /* Python snake */
 .python-snake{position:fixed;inset:0;z-index:40;width:100%;height:100%;pointer-events:none}
