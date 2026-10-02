@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Python | Cinematic Walkthrough Agency for Homes, Airbnbs, Golf Courses &amp; Gyms</title>
+<meta name="description" content="Python is the cinematic walkthrough agency. We turn photos of any property, from homes and Airbnbs to golf courses, gyms and hotels, into 4K video walkthroughs and social reels. No film crew. Delivered in under 24 hours.">
+<link rel="canonical" href="https://pythonwalkthroughs.com/">
+<meta name="theme-color" content="#0e3473">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Python">
+<meta property="og:title" content="Your listing photos, cut into cinema | Python Walkthroughs">
+<meta property="og:description" content="4K cinematic walkthroughs and social reels from the photos you already have. Built for Colorado agents, brokerages and Airbnb hosts. Back in under 24 hours.">
+<meta property="og:url" content="https://pythonwalkthroughs.com/">
+<meta property="og:image" content="https://pythonwalkthroughs.com/assets/og-image.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Python | Cinematic real estate walkthroughs">
+<meta name="twitter:description" content="Listing photos in. 4K cinematic walkthroughs out. Under 24 hours.">
+<link rel="icon" href="assets/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://d2ol7oe51mr4n9.cloudfront.net" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://pythonwalkthroughs.com/#studio",
+      "name": "Python",
+      "url": "https://pythonwalkthroughs.com/",
+      "logo": "https://pythonwalkthroughs.com/assets/icon-512.png",
+      "image": "https://pythonwalkthroughs.com/assets/og-image.png",
+      "description": "Real estate media studio that transforms listing photos into 4K cinematic video walkthroughs and social reels for agents, brokerages and vacation rental hosts, delivered in under 24 hours.",
+      "email": "hello@pythonwalkthroughs.com",
+      "priceRange": "$300 - $2,500",
+      "address": { "@type": "PostalAddress", "addressLocality": "Boulder", "addressRegion": "CO", "addressCountry": "US" },
+      "areaServed": [
+        { "@type": "City", "name": "Boulder" },
+        { "@type": "City", "name": "Denver" },
+        { "@type": "City", "name": "Estes Park" },
+        { "@type": "City", "name": "Nederland" },
+        { "@type": "State", "name": "Colorado" }
+      ],
+      "knowsAbout": ["Real estate video", "Cinematic property walkthroughs", "Listing reels", "Virtual twilight", "Airbnb video marketing"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pythonwalkthroughs.com/#website",
+      "url": "https://pythonwalkthroughs.com/",
+      "name": "Python",
+      "publisher": { "@id": "https://pythonwalkthroughs.com/#studio" }
+    }
+  ]
+}
+</script>
+<style>
+/* Licensed font files can be added to /fonts and appended to each src list as url(fonts/<file>.woff2). */
+@font-face{font-family:'SF Pro';src:local('SF Pro Text'),local('SFProText-Regular'),local('SF Pro');font-weight:400;font-display:swap}
+@font-face{font-family:'SF Pro';src:local('SF Pro Text Bold'),local('SFProText-Bold'),local('SF Pro Bold');font-weight:700;font-display:swap}
+@font-face{font-family:'SF Pro Thin';src:local('SF Pro Display Thin'),local('SFProDisplay-Thin'),local('SF Pro Thin');font-weight:100;font-display:swap}
+@font-face{font-family:'Aalto';src:local('Aalto'),local('Aalto Regular');font-weight:400;font-display:swap}
+
+:root{font-family:'SF Pro',Arial,sans-serif;color:#fff;background:#090807;font-synthesis:none}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+html,body,button,a,.portal{cursor:none!important}
+@media (pointer:coarse){html,body,button,a,.portal{cursor:auto!important}.custom-cursor{display:none!important}}
+
+.experience{position:relative;width:100%;height:100%;min-height:540px;overflow:hidden;background:#0a0908}
+.backgrounds,.shade{position:absolute;inset:0;width:100%;height:100%}
+.shade{z-index:1;background:linear-gradient(to bottom,transparent 52%,rgba(0,0,0,.88) 100%);pointer-events:none}
+
+/* Film layers: media is screen-locked; the portal layer is clipped to the projected window each frame. */
+.film-layer{position:fixed;inset:0;overflow:hidden;background:#030303}
+.film-layer.is-bg{z-index:0;clip-path:none}
+.film-layer.is-portal{z-index:2;clip-path:circle(0 at 50% 50%)}
+.layer-media,.layer-shade{position:absolute;inset:0}
+.layer-media video,.layer-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.layer-media iframe{position:absolute;top:50%;left:50%;width:var(--yt-w,max(120vw,213.34vh));height:var(--yt-h,max(120vh,67.5vw));transform:translate(-50%,-50%) scale(var(--yt-scale,1));border:0;pointer-events:none}
+.layer-shade{background:linear-gradient(to bottom,transparent 52%,rgba(0,0,0,.88) 100%);opacity:0;pointer-events:none}
+.film-layer.is-bg .layer-shade{opacity:0!important}
+
+.chrome{position:absolute;z-index:4;transition:opacity .45s ease,filter .45s ease}
+.experience.is-transitioning .chrome{opacity:0;filter:blur(8px);pointer-events:none}
+
+.header{left:clamp(18px,1.95vw,28px);right:clamp(18px,1.95vw,28px);top:clamp(18px,3.1vh,28px);display:flex;justify-content:space-between;align-items:center}
+.brand-slot{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;min-height:42px}
+.brand-slot .mark{width:86px;height:60px;flex:none;object-fit:contain}
+.brand-slot .wordmark{padding-left:14px;border-left:1px solid rgba(255,255,255,.3);font-size:12px;letter-spacing:.14em;text-transform:uppercase;line-height:1.3;max-width:130px;opacity:.78}
+.header-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.nav{display:flex;align-items:center;height:42px;padding:4px 5px;border:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:999px}
+.nav a{color:#fff;text-decoration:none;padding:8px 19px;border-radius:999px;line-height:1;font-size:15px;transition:background .25s,color .25s}
+.nav a:hover{background:rgba(255,255,255,.16)}
+.nav a.active{background:#fff;color:#000}
+.menu{height:42px;padding:0 20px;border:0;border-radius:999px;background:#fff;color:#000;font:inherit;font-size:15px}
+
+.planet-list{left:clamp(18px,1.95vw,28px);top:50%;transform:translateY(-43%);display:flex;flex-direction:column;gap:6px;font-size:16px}
+.planet-item{display:flex;align-items:center;min-height:20px;padding:0;border:0;background:none;color:rgba(255,255,255,.72);font:inherit;text-align:left;transition:color .25s}
+.planet-item:hover{color:#fff}
+.planet-item.active{font-size:18px;font-weight:700;gap:8px;color:#fff}
+.planet-item.active:before{content:'';width:16px;height:16px;border-radius:50%;background:#fff}
+
+.portal-wrap{left:50%;top:50%;width:min(320px,31vw);transform:translate(-50%,-54%);perspective:none}
+.portal-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:clamp(30px,3.4vw,44px);font-size:16px;opacity:0}
+.portal-heading strong{font-size:18px;margin-left:8px}
+.portal{position:relative;display:block;width:100%;aspect-ratio:320/350;padding:0;overflow:visible;border:0;border-radius:90px;background:transparent;box-shadow:none;transform:none!important}
+.portal:focus-visible{outline:2px solid #fff;outline-offset:8px}
+.portal-canvas{position:fixed;inset:0;z-index:3;width:100%;height:100%;pointer-events:none}
+.snake-canvas{position:fixed;inset:0;z-index:4;width:100%;height:100%;pointer-events:none}
+
+.planet-content{left:clamp(28px,4vw,58px);right:clamp(28px,3vw,44px);bottom:clamp(24px,3vh,30px);display:flex;justify-content:space-between;align-items:flex-end;gap:40px;pointer-events:none}
+.planet-content a,.planet-content button,.planet-content dl,.planet-content .tagline{pointer-events:auto}
+.planet-title{--fit:1;--tx:-32px;font-family:Aalto,'Arial Narrow','Roboto Condensed','Helvetica Neue Condensed',sans-serif;font-stretch:condensed;font-size:calc(clamp(128px,21.8vw,314px) * var(--fit));font-weight:400;line-height:.72;margin:0 0 -.04em;letter-spacing:0;text-transform:uppercase;transform:translateX(var(--tx));opacity:0;white-space:nowrap}
+.content-side{width:min(447px,34vw)}
+.tagline{margin:0 0 14px;font-size:15px;font-weight:400;line-height:1.35;opacity:0;color:rgba(255,255,255,.86)}
+.tagline b{color:#fff}
+.planet-content dl{margin:0;font-size:16px}
+.fact{display:grid;grid-template-columns:138px 1fr;gap:18px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.48);opacity:0}
+.fact:last-child{border-bottom:0}
+.fact dt{font-weight:700}
+.fact dd{margin:0}
+.watch{display:inline-flex;align-items:center;gap:10px;margin-top:14px;height:40px;padding:0 18px 0 6px;border:1px solid rgba(255,255,255,.45);border-radius:999px;background:rgba(255,255,255,.1);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:#fff;font:inherit;font-size:14px;text-decoration:none;opacity:0;transition:background .25s}
+.watch:hover{background:rgba(255,255,255,.2)}
+.watch .play{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#fff;color:#000;font-size:10px}
+
+.loading{position:absolute;z-index:12;left:50%;bottom:30px;transform:translateX(-50%);opacity:0;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:opacity .2s;pointer-events:none}
+.experience.is-loading .loading{opacity:.8}
+.experience.is-transitioning .header,.experience.is-transitioning .planet-list{opacity:1;filter:none;pointer-events:auto}
+.experience.is-transitioning .shade{opacity:1}
+
+/* Preloader */
+.preloader{position:absolute;inset:0;z-index:20;background:#000;overflow:hidden;transition:opacity 1.2s ease}
+.preloader video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.preloader-shade{position:absolute;inset:auto 0 0;height:35%;background:linear-gradient(to bottom,transparent,#000);transition:opacity .6s}
+.preloader.is-background{z-index:0}
+.preloader.is-background .preloader-shade{opacity:0}
+.preloader.is-gone{opacity:0;pointer-events:none}
+.floating-logo{position:fixed;z-index:22;left:50%;top:50%;width:min(300px,62vw);height:auto;aspect-ratio:821/573;transform:translate(-50%,-50%);will-change:left,top,width,height,transform;transition:left 2s cubic-bezier(.16,1,.3,1),top 2s cubic-bezier(.16,1,.3,1),width 2s cubic-bezier(.16,1,.3,1),height 2s cubic-bezier(.16,1,.3,1),transform 2s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.floating-logo.is-docked{left:clamp(18px,1.95vw,28px);top:clamp(18px,3.1vh,28px);width:86px;height:auto;transform:none}
+.floating-logo.is-settled{z-index:5}
+.preloader-count{position:fixed;z-index:22;left:50%;bottom:clamp(22px,3.1vh,28px);display:flex;align-items:flex-end;gap:4px;transform:translateX(-50%);font-family:'SF Pro',Arial,sans-serif;line-height:1}
+.preloader-count>span:first-child{font-family:'SF Pro Thin','SF Pro',Arial,sans-serif;font-size:64px;font-weight:100;font-variant-numeric:tabular-nums}
+.preloader-count .percent{font-size:24px;padding-bottom:4px}
+.preloader-count.is-leaving{animation:preload-count-out .75s cubic-bezier(.22,1,.36,1) both}
+@keyframes preload-count-out{to{opacity:0;filter:blur(7px);transform:translate(-50%,-34px)}}
+body:not(.preload-complete) .custom-cursor{opacity:0!important}
+body:not(.preload-complete) .brand-slot .mark{visibility:hidden}
+.brand-slot .mark{visibility:hidden}
+body.logo-settled .brand-slot .mark{visibility:visible}
+body.logo-settled .floating-logo{display:none}
+
+/* Custom cursor */
+.custom-cursor{display:block;position:fixed;left:0;top:0;z-index:100;width:1px;height:1px;pointer-events:none;opacity:0;transition:opacity .2s ease}
+.custom-cursor.is-visible{opacity:1}
+.cursor-dot,.cursor-orbit{position:absolute;left:0;top:0;border-radius:50%;transform:translate(-50%,-50%)}
+.cursor-dot{width:12px;height:12px;background:#fff}
+.cursor-orbit{width:36px;height:36px;border:1px solid #fff;background:rgba(255,255,255,.4);mix-blend-mode:normal;transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.cursor-dot,.cursor-orbit,.cursor-label{will-change:left,top}
+.custom-cursor.is-enter .cursor-orbit{transform:translate(-50%,-50%) scale(1.16)}
+.cursor-label{position:absolute;top:26px;left:0;transform:translateX(-50%) translateY(-4px);font:16px/1.2 'SF Pro',Arial,sans-serif;white-space:nowrap;opacity:0;transition:opacity .2s ease,transform .3s cubic-bezier(.22,1,.36,1)}
+.custom-cursor.is-enter .cursor-label{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Site menu + film modal */
+.site-menu{position:fixed;inset:0;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:clamp(80px,12vh,120px) clamp(24px,5vw,72px) 40px;background:rgba(6,5,4,.86);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s linear .4s;overflow:auto}
+.site-menu.is-open{opacity:1;visibility:visible;transition:opacity .4s ease}
+.site-menu nav{display:flex;flex-direction:column;gap:2px}
+.site-menu nav a{font-family:Aalto,'Arial Narrow',sans-serif;font-stretch:condensed;font-size:clamp(40px,6.4vw,84px);line-height:.98;color:#fff;text-decoration:none;text-transform:uppercase;opacity:.82;transition:opacity .2s,transform .3s cubic-bezier(.22,1,.36,1)}
+.site-menu nav a:hover{opacity:1;transform:translateX(8px)}
+.menu-side{align-self:end;display:flex;flex-direction:column;gap:18px;max-width:420px;font-size:16px;line-height:1.5}
+.menu-side p{margin:0;color:rgba(255,255,255,.78)}
+.menu-side .cta{display:inline-flex;align-self:flex-start;height:46px;align-items:center;padding:0 24px;border-radius:999px;background:#fff;color:#000;text-decoration:none;font-weight:700}
+.menu-side .links{display:flex;flex-wrap:wrap;gap:8px 18px}
+.menu-side .links a{color:#fff;opacity:.75}
+.menu-close{position:absolute;top:clamp(18px,3.1vh,28px);right:clamp(18px,1.95vw,28px);height:42px;padding:0 20px;border:0;border-radius:999px;background:#fff;color:#000;font:inherit;font-size:15px}
+
+.film-modal{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:clamp(16px,4vw,60px);background:rgba(0,0,0,.86);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s linear .35s}
+.film-modal.is-open{opacity:1;visibility:visible;transition:opacity .35s ease}
+.film-modal-frame{position:relative;width:min(1200px,100%);aspect-ratio:16/9;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+.film-modal-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.film-modal-close{position:absolute;top:clamp(14px,3vh,28px);right:clamp(14px,2vw,28px);height:42px;padding:0 20px;border:0;border-radius:999px;background:#fff;color:#000;font:inherit;font-size:15px}
+
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Entrance / switch animations */
+body:not(.intro-ready) .header,body:not(.intro-ready) .planet-list{opacity:0}
+.intro-ready .header{animation:reveal-down .9s cubic-bezier(.22,1,.36,1) .1s both}
+.intro-ready .planet-list{animation:reveal-side .9s cubic-bezier(.22,1,.36,1) .65s both}
+.content-revealing .planet-title{animation:title-rise 1.05s cubic-bezier(.16,1,.3,1) both}
+.content-revealing .tagline{animation:fact-rise .72s cubic-bezier(.22,1,.36,1) .36s both}
+.content-revealing .fact{animation:fact-rise .72s cubic-bezier(.22,1,.36,1) both}
+.content-revealing .fact:nth-child(1){animation-delay:.52s}
+.content-revealing .fact:nth-child(2){animation-delay:.68s}
+.content-revealing .fact:nth-child(3){animation-delay:.84s}
+.content-revealing .fact:nth-child(4){animation-delay:1s}
+.content-revealing .watch{animation:fact-rise .72s cubic-bezier(.22,1,.36,1) 1.14s both}
+.mask-revealing .portal-heading{animation:portal-caption .85s cubic-bezier(.22,1,.36,1) both}
+.planet-list.is-switching .planet-item{animation:menu-row .58s cubic-bezier(.22,1,.36,1) both}
+.planet-list.is-switching .planet-item:nth-child(1){animation-delay:.02s}
+.planet-list.is-switching .planet-item:nth-child(2){animation-delay:.05s}
+.planet-list.is-switching .planet-item:nth-child(3){animation-delay:.08s}
+.planet-list.is-switching .planet-item:nth-child(4){animation-delay:.11s}
+.planet-list.is-switching .planet-item:nth-child(5){animation-delay:.14s}
+.planet-list.is-switching .planet-item:nth-child(6){animation-delay:.17s}
+.planet-list.is-switching .planet-item:nth-child(7){animation-delay:.2s}
+.planet-list.is-switching .planet-item:nth-child(8){animation-delay:.23s}
+.planet-list.is-switching .planet-item:nth-child(9){animation-delay:.26s}
+.planet-list.is-switching .planet-item.active:before{animation:active-dot .55s cubic-bezier(.22,1,.36,1) .18s both}
+
+@keyframes reveal-down{from{opacity:0;filter:blur(8px);transform:translateY(-18px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes reveal-side{from{opacity:0;filter:blur(8px);transform:translate(-20px,-43%)}to{opacity:1;filter:blur(0);transform:translate(0,-43%)}}
+@keyframes title-rise{from{opacity:0;filter:blur(12px);transform:translate(var(--tx),42px)}to{opacity:1;filter:blur(0);transform:translate(var(--tx),0)}}
+@keyframes fact-rise{from{opacity:0;filter:blur(7px);transform:translateY(18px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes portal-caption{from{opacity:0;filter:blur(7px);transform:translateY(22px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes menu-row{from{opacity:.35;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+@keyframes active-dot{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+
+@media(max-width:1100px){.brand-slot .wordmark{display:none}}
+@media(max-width:900px){
+  .nav{display:none}
+  .portal-wrap{width:min(300px,48vw)}
+  .planet-title{font-size:calc(clamp(105px,24vw,190px) * var(--fit))}
+  .content-side{width:43vw}
+  .fact{grid-template-columns:110px 1fr}
+  .planet-list{font-size:14px}
+  .planet-item.active{font-size:16px}
+  .portal-wrap{top:42%}
+  .tagline{display:none}
+  .fact:nth-child(4){display:none}
+  .fact:nth-child(3){border-bottom:0}
+  .planet-title{--tx:-12px}
+  .site-menu{grid-template-columns:1fr}
+  .menu-side{align-self:start}
+}
+@media(max-width:640px){
+  .experience{min-height:600px}
+  .planet-list{display:none}
+  .portal-wrap{top:40%;width:min(240px,62vw)}
+  .planet-content{left:18px;right:18px;bottom:18px;display:block}
+  .planet-title{--tx:-6px;font-size:calc(clamp(98px,30vw,160px) * var(--fit));margin-bottom:16px}
+  .content-side{width:100%}
+  .tagline{display:none}
+  .planet-content dl{font-size:13px}
+  .fact{grid-template-columns:92px 1fr;padding:5px 0}
+  .fact:nth-child(n+3){display:none}
+  .fact:nth-child(2){border-bottom:0}
+  .portal-heading{font-size:14px}
+  .portal-heading strong{font-size:16px}
+  .menu,.menu-close{height:38px}
+  .portal{border-radius:70px}
+}
+@media(max-height:720px) and (min-width:641px){
+  .fact{padding:5px 0}
+  .tagline{display:none}
+  .portal-wrap{width:min(260px,26vw)}
+}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}.portal{transform:none!important}}
+</style>
+</head>
+<body>
+<main class="experience" data-film="estate">
+  <div class="backgrounds" aria-hidden="true">
+    <div class="film-layer is-bg" id="layer-a"><div class="layer-media"></div><div class="layer-shade"></div></div>
+    <div class="film-layer is-portal" id="layer-b"><div class="layer-media"></div><div class="layer-shade"></div></div>
+  </div>
+  <div class="preloader" id="preloader" aria-label="Loading the Python showreel">
+    <video id="preloader-video" muted playsinline preload="auto"></video>
+    <div class="preloader-shade"></div>
+  </div>
+  <img class="floating-logo" id="floating-logo" src="assets/logo.png" alt="" aria-hidden="true">
+  <div class="preloader-count" id="preloader-count" aria-live="polite">
+    <span id="preloader-value">0</span><span class="percent">%</span>
+  </div>
+  <div class="shade" aria-hidden="true"></div>
+
+  <canvas id="snake-canvas" class="snake-canvas" aria-hidden="true"></canvas>
+  <header class="header chrome">
+    <a class="brand-slot" href="./">
+      <img class="mark" src="assets/logo.png" alt="Python">
+      <span class="wordmark">Cinematic walkthrough agency</span>
+    </a>
+    <div class="header-actions">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="active" href="./" aria-current="page">Showreel</a><a href="work.html">Work</a><a href="services.html">Services</a><a href="pricing.html">Pricing</a>
+      </nav>
+      <button class="menu" id="menu-open" type="button" aria-expanded="false" aria-controls="site-menu">Menu</button>
+    </div>
+  </header>
+
+  <aside class="planet-list chrome" aria-label="Walkthrough examples"></aside>
+
+  <canvas id="portal-canvas" class="portal-canvas" aria-hidden="true"></canvas>
+  <section class="portal-wrap chrome" aria-label="Next walkthrough">
+    <div class="portal-heading">
+      <span>Next:</span>
+      <span><span id="next-number">[02]</span> <strong id="next-name">Golf Course Home</strong></span>
+    </div>
+    <button class="portal" id="portal" type="button" aria-label="Travel to Golf Course Home"></button>
+  </section>
+
+  <section class="planet-content chrome" aria-live="polite">
+    <p class="planet-title" id="planet-title" aria-hidden="true">ESTATE</p>
+    <div class="content-side">
+      <h1 class="tagline"><b>Cinematic walkthroughs for any space.</b> Homes, Airbnbs, golf courses, gyms. Cut from the photos you already have, in under 24 hours.</h1>
+      <h2 class="sr-only" id="film-heading">Mountain Estate walkthrough</h2>
+      <dl id="facts"></dl>
+      <a class="watch" id="watch" href="contact.html" data-cursor="Play"><span class="play" aria-hidden="true">&#9654;</span><span id="watch-label">Get a free sample</span></a>
+    </div>
+  </section>
+
+  <div class="loading" aria-hidden="true">Preparing the next walkthrough…</div>
+  <div class="custom-cursor" aria-hidden="true">
+    <span class="cursor-orbit"></span><span class="cursor-dot"></span><span class="cursor-label">Enter</span>
+  </div>
+</main>
+
+<div class="site-menu" id="site-menu" role="dialog" aria-modal="true" aria-label="Site menu">
+  <button class="menu-close" id="menu-close" type="button">Close</button>
+  <nav aria-label="All pages">
+    <a href="work.html">Work</a>
+    <a href="services.html">Services</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="process.html">Process</a>
+    <a href="real-estate-agents.html">For Agents</a>
+    <a href="vacation-rentals.html">For Hosts</a>
+    <a href="commercial.html">Commercial</a>
+    <a href="about.html">Studio</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="menu-side">
+    <p>Python is the cinematic walkthrough agency. We turn still photos of any space, from homes and Airbnbs to golf courses and gyms, into 4K films and platform-ready reels. No crew, no scheduling, back in under 24 hours.</p>
+    <a class="cta" href="contact.html?intent=sample">Get a free sample of your listing</a>
+    <div class="links">
+      <a href="brokerages.html">Brokerages</a><a href="virtual-twilight.html">Virtual Twilight</a><a href="boulder-real-estate-video.html">Boulder</a><a href="service-areas.html">Service Areas</a><a href="faq.html">FAQ</a>
+    </div>
+    <p><a href="mailto:hello@pythonwalkthroughs.com" style="color:#fff">hello@pythonwalkthroughs.com</a></p>
+  </div>
+</div>
+
+<div class="film-modal" id="film-modal" role="dialog" aria-modal="true" aria-label="Walkthrough video">
+  <button class="film-modal-close" id="film-modal-close" type="button">Close</button>
+  <div class="film-modal-frame" id="film-modal-frame"></div>
+</div>
+
+<noscript><p style="position:fixed;inset:auto 0 0;z-index:99;margin:0;padding:16px;background:#000">Python turns listing photos into cinematic video walkthroughs. <a href="work.html" style="color:#fff">See the work</a> or email hello@pythonwalkthroughs.com.</p></noscript>
+
+<script src="assets/films.js"></script>
+<script src="assets/snake.js"></script>
+<script>
+(function () {
+  "use strict";
+  var FILMS = window.FILMS, STUDIO = window.STUDIO, ytId = window.ytId;
+  var $ = function (id) { return document.getElementById(id); };
+  var experience = document.querySelector(".experience");
+  var list = document.querySelector(".planet-list");
+  var portalBtn = $("portal");
+  var canvas = $("portal-canvas"), ctx = canvas.getContext("2d");
+  var title = $("planet-title"), factsEl = $("facts");
+  var watch = $("watch"), watchLabel = $("watch-label");
+  var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var current = 0, renderedOnce = false, busy = false;
+  var expansion = 0, maskScale = 0;
+  var rotX = 0, rotY = 0, targetX = 0, targetY = 0, last = performance.now();
+
+  function nextIndex(i) { return ((i === undefined ? current : i) + 1) % FILMS.length; }
+  function num(i) { return "[" + String(i + 1).padStart(2, "0") + "]"; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function ease(t) { return t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function frames(n) { return new Promise(function (r) { (function step(k) { k <= 0 ? r() : requestAnimationFrame(function () { step(k - 1); }); })(n); }); }
+  function timeout(p, ms) { return Promise.race([p, wait(ms)]); }
+  function animateValue(setter, duration) {
+    if (reduce) { setter(1); return Promise.resolve(); }
+    return new Promise(function (resolve) {
+      var t0 = performance.now();
+      (function frame(now) {
+        var t = Math.min(1, (now - t0) / duration);
+        setter(ease(t));
+        t < 1 ? requestAnimationFrame(frame) : resolve();
+      })(t0);
+    });
+  }
+  function retrigger(el, cls) { el.classList.remove(cls); void el.offsetWidth; el.classList.add(cls); }
+
+  /* ---------- Film layers (mp4 / YouTube / still) ---------- */
+  function makeLayer(el) { return { el: el, media: el.querySelector(".layer-media"), shade: el.querySelector(".layer-shade"), film: null, video: null, player: null, start: 0 }; }
+  var layerA = makeLayer($("layer-a")), layerB = makeLayer($("layer-b"));
+  var bg = layerA, portal = layerB;
+
+  var ytApi = null;
+  function loadYouTubeApi() {
+    if (ytApi) return ytApi;
+    ytApi = new Promise(function (resolve) {
+      if (window.YT && window.YT.Player) return resolve();
+      var prev = window.onYouTubeIframeAPIReady;
+      window.onYouTubeIframeAPIReady = function () { if (prev) prev(); resolve(); };
+      var s = document.createElement("script");
+      s.src = "https://www.youtube.com/iframe_api";
+      s.onerror = function () { resolve(); };
+      document.head.appendChild(s);
+    });
+    return ytApi;
+  }
+
+  function teardown(layer) {
+    clearInterval(layer.loopTimer); layer.loopTimer = 0;
+    if (layer.player) { try { layer.player.destroy(); } catch (e) {} }
+    if (layer.video) { layer.video.pause(); layer.video.removeAttribute("src"); try { layer.video.load(); } catch (e) {} }
+    layer.player = null; layer.video = null; layer.media.innerHTML = "";
+  }
+
+  function mediaReady(el, evt, ms) {
+    return timeout(new Promise(function (resolve) {
+      if (evt === "load" ? el.complete : el.readyState >= 2) return resolve();
+      el.addEventListener(evt, resolve, { once: true });
+      el.addEventListener("error", resolve, { once: true });
+    }), ms);
+  }
+
+  function loadVideo(layer, src) {
+    var v = document.createElement("video");
+    v.muted = true; v.loop = true; v.playsInline = true; v.preload = "auto";
+    v.setAttribute("muted", ""); v.setAttribute("playsinline", "");
+    window.guardVideo(v);
+    v.src = src;
+    layer.media.appendChild(v);
+    layer.video = v;
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    return mediaReady(v, "loadeddata", 3000);
+  }
+
+  function loadImage(layer, src) {
+    var img = new Image();
+    img.alt = ""; img.decoding = "async"; img.src = src;
+    layer.media.appendChild(img);
+    return mediaReady(img, "load", 3000);
+  }
+
+  function loadYouTube(layer, film, id) {
+    return timeout(loadYouTubeApi(), 4000).then(function () {
+      if (!(window.YT && window.YT.Player) || layer.film !== film) {
+        return film.clip ? loadVideo(layer, film.clip) : film.image ? loadImage(layer, film.image) : null;
+      }
+      var mount = document.createElement("div");
+      layer.media.appendChild(mount);
+      var start = film.start || 0, end = film.end || 0;
+      layer.start = start;
+      var vars = { autoplay: 1, mute: 1, controls: 0, rel: 0, playsinline: 1, disablekb: 1, fs: 0, iv_load_policy: 3, modestbranding: 1, cc_load_policy: 0, vq: "hd2160", start: start };
+      if (location.protocol.indexOf("http") === 0) vars.origin = location.origin;
+      return timeout(new Promise(function (resolve) {
+        layer.player = new YT.Player(mount, {
+          videoId: id,
+          playerVars: vars,
+          events: {
+            onReady: function (e) {
+              try { var f = e.target.getIframe(); f.setAttribute("tabindex", "-1"); f.setAttribute("title", ""); } catch (err) {}
+              e.target.mute(); e.target.playVideo();
+              try { e.target.unloadModule("captions"); e.target.unloadModule("cc"); } catch (err) {}
+            },
+            onStateChange: function (e) {
+              if (e.data === 1) { try { e.target.unloadModule("captions"); e.target.unloadModule("cc"); } catch (err) {} }
+              if (e.data === 1) (window.whenSharp ? whenSharp(e.target, resolve, 2500) : resolve());
+              if (e.data === 0) { e.target.seekTo(start, true); e.target.playVideo(); }
+              // Loop in-page instead of using `end`, so the seek stays inside buffered video (no spinner or end screen).
+              if (e.data === 1 && end && !layer.loopTimer) {
+                var p = e.target;
+                layer.loopTimer = setInterval(function () {
+                  try { if (p.getCurrentTime() >= end - 0.15) p.seekTo(start, false); } catch (err) {}
+                }, 120);
+              }
+            },
+            onError: function () { resolve(); }
+          }
+        });
+      }), 3500);
+    });
+  }
+
+  function loadInto(layer, film) {
+    if (layer.film === film) return Promise.resolve();
+    teardown(layer);
+    layer.film = film;
+    var id = ytId(film.youtube);
+    if (id) return loadYouTube(layer, film, id);
+    if (film.clip) return loadVideo(layer, film.clip);
+    if (film.image) return loadImage(layer, film.image);
+    return Promise.resolve();
+  }
+
+  function restart(layer) {
+    try {
+      if (layer.video) { layer.video.currentTime = 0; layer.video.play().catch(function () {}); }
+      if (layer.player) { layer.player.seekTo(layer.start, true); layer.player.playVideo(); }
+    } catch (e) {}
+  }
+  function setRate(layer, rate) {
+    try {
+      if (layer.video) layer.video.playbackRate = rate;
+      if (layer.player) layer.player.setPlaybackRate(rate > 1 ? 1.25 : 1);
+    } catch (e) {}
+  }
+
+  function swapLayers() {
+    var oldBg = bg;
+    portal.el.style.clipPath = "none";
+    portal.shade.style.opacity = 0;
+    oldBg.el.style.clipPath = "circle(0px at 50% 50%)";
+    portal.el.classList.remove("is-portal"); portal.el.classList.add("is-bg");
+    oldBg.el.classList.remove("is-bg"); oldBg.el.classList.add("is-portal");
+    bg = portal; portal = oldBg;
+  }
+
+  /* ---------- Render ---------- */
+  function render() {
+    var film = FILMS[current], ni = nextIndex(), next = FILMS[ni];
+    experience.dataset.film = film.slug;
+    title.textContent = film.title.toUpperCase();
+    title.style.setProperty("--fit", Math.min(1, 4.4 / film.title.length).toFixed(3));
+    $("film-heading").textContent = film.label + " walkthrough — " + film.place;
+    $("next-name").textContent = next.label;
+    $("next-number").textContent = num(ni);
+    portalBtn.setAttribute("aria-label", "Travel to " + next.label);
+    factsEl.innerHTML = film.facts.map(function (f) {
+      return '<div class="fact"><dt>' + esc(f[0]) + "</dt><dd>" + esc(f[1]) + "</dd></div>";
+    }).join("");
+    list.innerHTML = FILMS.map(function (f, i) {
+      var active = i === current;
+      return '<button type="button" class="planet-item' + (active ? " active" : "") + '" data-index="' + i + '"' + (active ? ' aria-current="true"' : "") + ">" + esc(f.label) + "</button>";
+    }).join("");
+    if (renderedOnce) retrigger(list, "is-switching");
+    renderedOnce = true;
+    if (ytId(film.youtube)) {
+      watch.setAttribute("href", "https://www.youtube.com/watch?v=" + ytId(film.youtube));
+      watch.dataset.youtube = ytId(film.youtube);
+      watchLabel.textContent = "Watch the full walkthrough";
+      watch.dataset.cursor = "Play";
+    } else {
+      watch.setAttribute("href", "work/" + film.slug + ".html");
+      delete watch.dataset.youtube;
+      watchLabel.textContent = "See the " + film.label.toLowerCase() + " case";
+      watch.dataset.cursor = "Open";
+    }
+  }
+
+  /* ---------- Canvas + mask ---------- */
+  var dpr = 1;
+  function resizeCanvas() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = innerWidth * dpr; canvas.height = innerHeight * dpr;
+    canvas.style.width = innerWidth + "px"; canvas.style.height = innerHeight + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function roundedRectPoints(w, h, r) {
+    r = Math.max(0, Math.min(r, w / 2, h / 2));
+    var corners = [
+      [w / 2 - r, -h / 2 + r, -Math.PI / 2, 0],
+      [w / 2 - r, h / 2 - r, 0, Math.PI / 2],
+      [-w / 2 + r, h / 2 - r, Math.PI / 2, Math.PI],
+      [-w / 2 + r, -h / 2 + r, Math.PI, Math.PI * 1.5]
+    ];
+    var pts = [];
+    corners.forEach(function (c) {
+      for (var i = 0; i <= 10; i++) {
+        var a = c[2] + (c[3] - c[2]) * i / 10;
+        pts.push([c[0] + Math.cos(a) * r, c[1] + Math.sin(a) * r]);
+      }
+    });
+    return pts;
+  }
+
+  function project(pts, cx, cy, rx, ry) {
+    var ax = rx * Math.PI / 180, ay = ry * Math.PI / 180;
+    var cax = Math.cos(ax), sax = Math.sin(ax), cay = Math.cos(ay), say = Math.sin(ay);
+    return pts.map(function (p) {
+      var xx = p[0] * cay, yy = p[1] * cax, z = p[0] * say - p[1] * sax, k = 850 / (850 + z);
+      return [cx + xx * k, cy + yy * k];
+    });
+  }
+
+  function portalRadius() { return matchMedia("(max-width: 640px)").matches ? 70 : 90; }
+
+  function draw(now) {
+    requestAnimationFrame(draw);
+    var dt = Math.min(40, now - last || 16); last = now;
+    var k = Math.min(1, dt * .009);
+    rotX += (targetX - rotX) * k;
+    rotY += (targetY - rotY) * k;
+
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    var rect = portalBtn.getBoundingClientRect(), e = expansion;
+    var rcx = rect.left + rect.width / 2, rcy = rect.top + rect.height / 2;
+    var cx = rcx + (innerWidth / 2 - rcx) * e, cy = rcy + (innerHeight / 2 - rcy) * e;
+    var baseW = rect.width + (innerWidth - rect.width) * e;
+    var baseH = rect.height + (innerHeight - rect.height) * e;
+    var scale = e ? 1 : maskScale;
+    var w = baseW * scale, h = baseH * scale;
+    var r = portalRadius() * (1 - e) * scale, rx = rotX * (1 - e), ry = rotY * (1 - e);
+
+    if (w > 1 && h > 1) {
+      var pts = project(roundedRectPoints(w, h, r), cx, cy, rx, ry);
+      portal.el.style.clipPath = "polygon(" + pts.map(function (p) { return p[0].toFixed(1) + "px " + p[1].toFixed(1) + "px"; }).join(",") + ")";
+      portal.shade.style.opacity = e;
+      var edge = .3 * (1 - e) * scale;
+      if (edge > .01) {
+        ctx.beginPath();
+        pts.forEach(function (p, i) { i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); });
+        ctx.closePath();
+        ctx.strokeStyle = "rgba(255,255,255," + edge.toFixed(3) + ")";
+        ctx.lineWidth = 1;
+        ctx.stroke();
+      }
+    } else {
+      portal.el.style.clipPath = "circle(0px at 50% 50%)";
+    }
+  }
+
+  /* ---------- Reveal + travel ---------- */
+  function revealMask() {
+    retrigger(experience, "mask-revealing");
+    maskScale = 0;
+    return animateValue(function (v) { maskScale = v; }, 1050);
+  }
+  function revealPlanetContent() { retrigger(experience, "content-revealing"); }
+
+  function resetTravel() {
+    expansion = 0; maskScale = 1;
+    experience.classList.remove("is-loading", "is-transitioning", "is-committing");
+    busy = false;
+  }
+
+  function travelTo(target) {
+    if (busy || target === current || !document.body.classList.contains("preload-complete")) return;
+    busy = true; targetX = 0; targetY = 0;
+    var film = FILMS[target];
+    (async function () {
+      try {
+        if (portal.film !== film) {
+          experience.classList.add("is-loading");
+          await loadInto(portal, film);
+        }
+        experience.classList.remove("is-loading", "content-revealing", "mask-revealing");
+        experience.classList.add("is-transitioning");
+        restart(portal);
+        setRate(portal, 1.3);
+        await animateValue(function (v) { expansion = v; }, 1100);
+        await wait(reduce ? 0 : 650);
+
+        experience.classList.add("is-committing");
+        swapLayers();
+        setRate(bg, 1);
+        current = target;
+        expansion = 0; maskScale = 0;
+        render();
+        await timeout(loadInto(portal, FILMS[nextIndex()]), 3500);
+        await frames(2);
+        experience.classList.remove("is-transitioning", "is-committing");
+        var maskReveal = revealMask();
+        setTimeout(revealPlanetContent, 100);
+        await maskReveal;
+        setTimeout(function () { busy = false; }, 450);
+      } catch (err) {
+        resetTravel();
+      }
+    })();
+  }
+
+  portalBtn.addEventListener("click", function () { travelTo(nextIndex()); });
+  list.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-index]");
+    if (b) travelTo(Number(b.dataset.index));
+  });
+  document.addEventListener("keydown", function (e) {
+    if (document.querySelector(".is-open")) return;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") travelTo(nextIndex());
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") travelTo((current - 1 + FILMS.length) % FILMS.length);
+  });
+
+  /* ---------- Python coiled around the portal ---------- */
+  var snake = window.PythonSnake ? PythonSnake.mount({
+    mode: "orbit",
+    canvas: $("snake-canvas"),
+    species: "reticulated",
+    getRect: function () { return portalBtn.getBoundingClientRect(); },
+    radius: portalRadius,
+    visible: function () { return document.body.classList.contains("intro-ready") && !experience.classList.contains("is-transitioning") && maskScale > .6; }
+  }) : null;
+
+  /* ---------- Scroll / swipe between walkthroughs ---------- */
+  var wheelAcc = 0, wheelTimer = 0;
+  function nudge(delta) {
+    if (snake) snake.push(delta * 2.2);
+    if (document.querySelector(".is-open")) return;
+    wheelAcc += delta;
+    clearTimeout(wheelTimer);
+    wheelTimer = setTimeout(function () { wheelAcc = 0; }, 260);
+    if (busy || Math.abs(wheelAcc) < 140) return;
+    travelTo(wheelAcc > 0 ? nextIndex() : (current - 1 + FILMS.length) % FILMS.length);
+    wheelAcc = 0;
+  }
+  addEventListener("wheel", function (e) { nudge(e.deltaY); }, { passive: true });
+  var touchY = null;
+  addEventListener("touchstart", function (e) { touchY = e.touches[0].clientY; }, { passive: true });
+  addEventListener("touchmove", function (e) {
+    if (touchY === null) return;
+    var y = e.touches[0].clientY; nudge((touchY - y) * 1.6); touchY = y;
+  }, { passive: true });
+  addEventListener("touchend", function () { touchY = null; });
+
+  /* ---------- Pointer tilt ---------- */
+  addEventListener("pointermove", function (e) {
+    if (busy || e.pointerType === "touch") return;
+    targetY = (e.clientX / innerWidth - .5) * 37.4;
+    targetX = (e.clientY / innerHeight - .5) * -33;
+  });
+  document.documentElement.addEventListener("pointerleave", function () { targetX = 0; targetY = 0; });
+
+  /* ---------- Cursor ---------- */
+  var cursor = document.querySelector(".custom-cursor");
+  var orbit = cursor.querySelector(".cursor-orbit"), dot = cursor.querySelector(".cursor-dot"), label = cursor.querySelector(".cursor-label");
+  var px = innerWidth / 2, py = innerHeight / 2, ox = px, oy = py;
+  addEventListener("pointermove", function (e) {
+    if (e.pointerType === "touch") return;
+    px = e.clientX; py = e.clientY;
+    cursor.classList.add("is-visible");
+  });
+  document.addEventListener("mouseleave", function () { cursor.classList.remove("is-visible"); });
+  function setCursor(text) { label.textContent = text; cursor.classList.add("is-enter"); }
+  portalBtn.addEventListener("pointerenter", function () { setCursor("Enter"); });
+  portalBtn.addEventListener("pointerleave", function () { cursor.classList.remove("is-enter"); });
+  document.addEventListener("pointerover", function (e) {
+    var t = e.target.closest && e.target.closest("[data-cursor]");
+    if (t) setCursor(t.dataset.cursor);
+  });
+  document.addEventListener("pointerout", function (e) {
+    var t = e.target.closest && e.target.closest("[data-cursor]");
+    if (t && !t.contains(e.relatedTarget)) cursor.classList.remove("is-enter");
+  });
+  function cursorLoop() {
+    requestAnimationFrame(cursorLoop);
+    ox += (px - ox) * .2; oy += (py - oy) * .2;
+    dot.style.left = px + "px"; dot.style.top = py + "px";
+    orbit.style.left = ox + "px"; orbit.style.top = oy + "px";
+    label.style.left = ox + "px"; label.style.top = (oy + 26) + "px";
+  }
+
+  /* ---------- Menu + modal ---------- */
+  var menu = $("site-menu"), menuOpen = $("menu-open");
+  function toggleMenu(open) {
+    menu.classList.toggle("is-open", open);
+    menuOpen.setAttribute("aria-expanded", String(open));
+    if (open) $("menu-close").focus(); else menuOpen.focus();
+  }
+  menuOpen.addEventListener("click", function () { toggleMenu(true); });
+  $("menu-close").addEventListener("click", function () { toggleMenu(false); });
+
+  var modal = $("film-modal"), modalFrame = $("film-modal-frame");
+  function openFilm(id) {
+    modalFrame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1&playsinline=1&vq=hd2160" title="' + esc(FILMS[current].label) + ' walkthrough" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+    modal.classList.add("is-open");
+    $("film-modal-close").focus();
+  }
+  function closeFilm() { modal.classList.remove("is-open"); setTimeout(function () { modalFrame.innerHTML = ""; }, 350); }
+  watch.addEventListener("click", function (e) {
+    if (watch.dataset.youtube) { e.preventDefault(); openFilm(watch.dataset.youtube); }
+  });
+  $("film-modal-close").addEventListener("click", closeFilm);
+  modal.addEventListener("click", function (e) { if (e.target === modal) closeFilm(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (modal.classList.contains("is-open")) closeFilm();
+    else if (menu.classList.contains("is-open")) toggleMenu(false);
+  });
+
+  /* ---------- Preloader ---------- */
+  var startPromise = null;
+  function startExperience() {
+    if (startPromise) return startPromise;
+    startPromise = (async function () {
+      await timeout(Promise.all([loadInto(bg, FILMS[current]), loadInto(portal, FILMS[nextIndex()])]), 4000);
+      await revealMask();
+      document.body.classList.add("intro-ready");
+      setTimeout(revealPlanetContent, reduce ? 0 : 850);
+    })();
+    return startPromise;
+  }
+
+  function runPreloader() {
+    var video = $("preloader-video"), value = $("preloader-value"), count = $("preloader-count");
+    var logo = $("floating-logo"), pre = $("preloader");
+    var finished = false, raf = 0, t0 = 0, mode = "video";
+
+    loadInto(bg, FILMS[current]);
+    loadInto(portal, FILMS[nextIndex()]);
+
+    function finish() {
+      if (finished) return;
+      finished = true;
+      cancelAnimationFrame(raf);
+      value.textContent = "100";
+      count.classList.add("is-leaving");
+      logo.classList.add("is-docked");
+      pre.classList.add("is-background");
+      document.body.classList.add("preload-complete");
+      startExperience();
+      setTimeout(function () { pre.classList.add("is-gone"); }, 150);
+      setTimeout(function () { count.remove(); }, 750);
+      setTimeout(function () {
+        logo.classList.add("is-settled");
+        document.body.classList.add("logo-settled");
+        video.pause(); video.removeAttribute("src"); try { video.load(); } catch (e) {}
+      }, reduce ? 0 : 2000);
+    }
+    function tick(now) {
+      if (finished) return;
+      var p = 0;
+      if (mode === "video" && video.duration) p = video.currentTime / video.duration;
+      else { if (!t0) t0 = now; p = Math.min(1, (now - t0) / 3000); if (p >= 1) return finish(); }
+      value.textContent = String(Math.min(99, Math.round(p * 100)));
+      raf = requestAnimationFrame(tick);
+    }
+    function fallback() { if (mode !== "timer") { mode = "timer"; t0 = 0; } }
+
+    window.guardVideo(video);
+    video.addEventListener("loadedmetadata", function () {
+      video.playbackRate = Math.min(16, Math.max(.25, video.duration / 3));
+      var p = video.play();
+      if (p && p.catch) p.catch(function () { finish(); });
+    });
+    video.addEventListener("ended", finish, { once: true });
+    video.addEventListener("error", fallback, { once: true });
+    setTimeout(function () { if (!video.duration) fallback(); }, 2500);
+    setTimeout(finish, 9000);
+    if (reduce || !STUDIO.introClip) { mode = "timer"; }
+    else { video.src = STUDIO.introClip; video.load(); }
+    raf = requestAnimationFrame(tick);
+  }
+
+  /* ---------- Boot ---------- */
+  addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+  render();
+  requestAnimationFrame(draw);
+  requestAnimationFrame(cursorLoop);
+  runPreloader();
+})();
+</script>
+</body>
+</html>
